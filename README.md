@@ -14,7 +14,7 @@ A TikTok/Instagram Reels-style app for learning Calculus 1ZB3 at McMaster Univer
 
 ## Tech Stack
 
-- **Next.js 15** - React framework with App Router
+- **Next.js 16** - React framework with App Router
 - **TypeScript** - Type safety
 - **Tailwind CSS** - Styling
 - **React** - UI components

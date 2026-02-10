@@ -1,7 +1,7 @@
 {
   "name": "calculusreels",
   "version": "1.0.0",
-  "description": "Basically just Calculus Reals",
+  "description": "Calculus learning through short video reels",
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
