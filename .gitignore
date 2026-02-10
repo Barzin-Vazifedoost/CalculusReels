@@ -24,6 +24,14 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env
+GEMINI_API_KEY
+
+# API keys and secrets
+*.key
+.api_keys
+secrets.json
+config/secrets.json
 
 # vercel
 .vercel
@@ -31,3 +39,31 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# NotebookLM authentication & browser data
+.notebooklm/
+playwright-state.json
+auth_state.json
+cookies.json
+browser_state/
+.cookies
+.auth_cache
+
+# Audio generation temp files
+scripts/temp/
+scripts/*.log
+
+# Generated audio files (uncomment if you want to ignore them)
+# public/audio/

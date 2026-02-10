@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>URL</key>
+	<string>copilot-pr:/.gitignore?%7B%22owner%22%3A%22Barzin-Vazifedoost%22%2C%22repo%22%3A%22CalculusReels%22%2C%22prNumber%22%3A1%2C%22commitSha%22%3A%223f0d79b9e0582371f8d03a5dd48a2ce2eb041b52%22%2C%22isBase%22%3Afalse%2C%22status%22%3A%22added%22%2C%22fileName%22%3A%22.gitignore%22%7D</string>
+</dict>
+</plist>
