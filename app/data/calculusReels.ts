@@ -299,5 +299,3 @@ export function getVideosByTopic(topic: string, count: number = 8): CalculusReel
   );
   return fisherYatesShuffle(filtered).slice(0, Math.min(count, filtered.length));
 }
-
-export const calculusReels = getRandomVideoSet(8);

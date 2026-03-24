@@ -30,8 +30,10 @@ export default function ReelCard({ reel, isActive, index, total, hasInteracted, 
   const [duration, setDuration] = useState(0);
   const [hasError, setHasError] = useState(false);
   const [showLikeAnimation, setShowLikeAnimation] = useState(false);
+  const [playbackSpeed, setPlaybackSpeed] = useState(1);
   const lastTapRef = useRef(0);
   const difficulty = difficultyConfig[reel.difficulty];
+  const SPEED_OPTIONS = [0.75, 1, 1.25, 1.5, 2] as const;
 
   // Auto-play/pause when active state changes
   useEffect(() => {
@@ -108,6 +110,34 @@ export default function ReelCard({ reel, isActive, index, total, hasInteracted, 
     audio.currentTime = time;
     setCurrentTime(time);
   }, []);
+
+  const cycleSpeed = useCallback(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    const currentIdx = SPEED_OPTIONS.indexOf(playbackSpeed as typeof SPEED_OPTIONS[number]);
+    const nextIdx = (currentIdx + 1) % SPEED_OPTIONS.length;
+    const newSpeed = SPEED_OPTIONS[nextIdx];
+    audio.playbackRate = newSpeed;
+    setPlaybackSpeed(newSpeed);
+  }, [playbackSpeed, SPEED_OPTIONS]);
+
+  // Keyboard shortcuts when this reel is active
+  useEffect(() => {
+    if (!isActive) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'm' || e.key === 'M') {
+        e.preventDefault();
+        toggleMute();
+      } else if (e.key === ' ') {
+        e.preventDefault();
+        togglePlay();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isActive, toggleMute, togglePlay]);
 
   const handleDoubleTap = useCallback(() => {
     const now = Date.now();
@@ -286,6 +316,18 @@ export default function ReelCard({ reel, isActive, index, total, hasInteracted, 
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
           </svg>
+        </button>
+
+        {/* Playback speed */}
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            cycleSpeed();
+          }}
+          className="focus-ring bg-white/10 hover:bg-white/20 border-white/10 text-white rounded-full p-3 backdrop-blur-md border transition-all duration-150 text-xs font-bold w-11 h-11 flex items-center justify-center"
+          aria-label={`Playback speed: ${playbackSpeed}x. Click to change.`}
+        >
+          {playbackSpeed}x
         </button>
       </div>
 

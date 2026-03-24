@@ -41,7 +41,8 @@ if not GEMINI_API_KEY:
 
 # Set the API key as environment variable for google.generativeai
 os.environ['GOOGLE_API_KEY'] = GEMINI_API_KEY
-model = ('gemini-1.5-flash')
+genai.configure(api_key=GEMINI_API_KEY)
+model = genai.GenerativeModel('gemini-1.5-flash')
 
 # Calculus topics with enhanced metadata
 TOPICS = [
@@ -135,7 +136,7 @@ Write the script now:
     
     try:
         print(f"🧠 Generating content for: {title}")
-        response = model.generate_text(prompt)
+        response = model.generate_content(prompt)
         content = response.text.strip()
         
         if not content:

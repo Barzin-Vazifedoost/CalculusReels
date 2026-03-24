@@ -64,6 +64,13 @@ body {
   100% { height: 40px; }
 }
 
+/* ── Select dropdown fix for dark backgrounds ── */
+
+select option {
+  background: #1a1a1a;
+  color: #ededed;
+}
+
 /* ── Double-tap like animation ── */
 
 @keyframes like-pop {
