@@ -12,6 +12,8 @@ interface ReelCardProps {
   index: number;
   total: number;
   hasInteracted: boolean;
+  isFavorite: boolean;
+  onToggleFavorite: (id: number) => void;
 }
 
 const difficultyConfig = {
@@ -20,13 +22,15 @@ const difficultyConfig = {
   advanced: { label: 'Advanced', bg: 'bg-rose-500/90', text: 'text-white' },
 } as const;
 
-export default function ReelCard({ reel, isActive, index, total, hasInteracted }: ReelCardProps) {
+export default function ReelCard({ reel, isActive, index, total, hasInteracted, isFavorite, onToggleFavorite }: ReelCardProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [hasError, setHasError] = useState(false);
+  const [showLikeAnimation, setShowLikeAnimation] = useState(false);
+  const lastTapRef = useRef(0);
   const difficulty = difficultyConfig[reel.difficulty];
 
   // Auto-play/pause when active state changes
@@ -35,7 +39,6 @@ export default function ReelCard({ reel, isActive, index, total, hasInteracted }
     if (!audio) return;
 
     if (isActive && hasInteracted) {
-      // Reset error state when becoming active
       setHasError(false);
       audio.play().catch(() => {});
       setIsPlaying(true);
@@ -53,14 +56,14 @@ export default function ReelCard({ reel, isActive, index, total, hasInteracted }
     const onTimeUpdate = () => setCurrentTime(audio.currentTime);
     const onLoadedMetadata = () => {
       setDuration(audio.duration);
-      setHasError(false); // Reset error on successful load
+      setHasError(false);
     };
     const onEnded = () => setIsPlaying(false);
     const onError = () => {
       console.log('Audio error occurred');
       setHasError(true);
     };
-    const onCanPlayThrough = () => setHasError(false); // Reset error when audio is ready
+    const onCanPlayThrough = () => setHasError(false);
 
     audio.addEventListener('timeupdate', onTimeUpdate);
     audio.addEventListener('loadedmetadata', onLoadedMetadata);
@@ -68,7 +71,6 @@ export default function ReelCard({ reel, isActive, index, total, hasInteracted }
     audio.addEventListener('error', onError);
     audio.addEventListener('canplaythrough', onCanPlayThrough);
 
-    // Try to load the audio
     audio.load();
 
     return () => {
@@ -107,6 +109,38 @@ export default function ReelCard({ reel, isActive, index, total, hasInteracted }
     setCurrentTime(time);
   }, []);
 
+  const handleDoubleTap = useCallback(() => {
+    const now = Date.now();
+    if (now - lastTapRef.current < 300) {
+      onToggleFavorite(reel.id);
+      if (!isFavorite) {
+        setShowLikeAnimation(true);
+        setTimeout(() => setShowLikeAnimation(false), 800);
+      }
+    } else {
+      togglePlay();
+    }
+    lastTapRef.current = now;
+  }, [togglePlay, onToggleFavorite, reel.id, isFavorite]);
+
+  const handleShare = useCallback(async () => {
+    const shareData = {
+      title: reel.title,
+      text: `Check out "${reel.title}" on Calculus Reels — ${reel.description}`,
+      url: window.location.href,
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+      } catch {
+        // User cancelled or share failed
+      }
+    } else {
+      await navigator.clipboard.writeText(`${shareData.text}\n${shareData.url}`);
+    }
+  }, [reel]);
+
   return (
     <article
       className="relative h-screen w-full snap-start snap-always flex items-center justify-center overflow-hidden"
@@ -115,7 +149,7 @@ export default function ReelCard({ reel, isActive, index, total, hasInteracted }
       aria-posinset={index + 1}
     >
       {/* Hidden audio element */}
-      <audio ref={audioRef} src={reel.audioUrl} preload={isActive ? 'auto' : 'metadata'} />
+      <audio ref={audioRef} src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}${reel.audioUrl}`} preload={isActive ? 'auto' : 'metadata'} />
 
       {/* Visual background */}
       <TopicCard reel={reel} />
@@ -125,12 +159,27 @@ export default function ReelCard({ reel, isActive, index, total, hasInteracted }
 
       {/* Click overlay to toggle play/pause */}
       <button
-        onClick={togglePlay}
+        onClick={handleDoubleTap}
         className="absolute inset-0 z-10 w-full h-full cursor-pointer focus-ring"
         aria-label={isPlaying ? 'Pause audio' : 'Play audio'}
       >
         <span className="sr-only">{isPlaying ? 'Pause' : 'Play'}</span>
       </button>
+
+      {/* Double-tap like animation */}
+      {showLikeAnimation && (
+        <div className="absolute inset-0 z-40 flex items-center justify-center pointer-events-none">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-24 w-24 text-red-500 animate-like-pop"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+        </div>
+      )}
 
       {/* Progress bar */}
       <ProgressBar
@@ -140,10 +189,10 @@ export default function ReelCard({ reel, isActive, index, total, hasInteracted }
         color={reel.color}
       />
 
-      {/* ── Info overlay ── */}
+      {/* Info overlay */}
       <div className="absolute bottom-0 left-0 right-0 z-20 p-6 pb-8 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none">
         {/* Badges */}
-        <div className="flex items-center gap-2 mb-3">
+        <div className="flex items-center gap-2 mb-3 flex-wrap">
           <span
             className={`inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold ${difficulty.bg} ${difficulty.text}`}
           >
@@ -176,8 +225,9 @@ export default function ReelCard({ reel, isActive, index, total, hasInteracted }
         </div>
       </div>
 
-      {/* ── Control buttons ── */}
+      {/* Control buttons */}
       <div className="absolute top-20 right-5 z-30 flex flex-col gap-3">
+        {/* Mute */}
         <button
           onClick={(e) => {
             e.stopPropagation();
@@ -201,9 +251,45 @@ export default function ReelCard({ reel, isActive, index, total, hasInteracted }
             </svg>
           )}
         </button>
+
+        {/* Favorite */}
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            onToggleFavorite(reel.id);
+            if (!isFavorite) {
+              setShowLikeAnimation(true);
+              setTimeout(() => setShowLikeAnimation(false), 800);
+            }
+          }}
+          className={`focus-ring ${
+            isFavorite
+              ? 'bg-red-500/80 hover:bg-red-500/90 border-red-400/50'
+              : 'bg-white/10 hover:bg-white/20 border-white/10'
+          } text-white rounded-full p-3 backdrop-blur-md border transition-all duration-150`}
+          aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill={isFavorite ? 'currentColor' : 'none'} viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+          </svg>
+        </button>
+
+        {/* Share */}
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            handleShare();
+          }}
+          className="focus-ring bg-white/10 hover:bg-white/20 border-white/10 text-white rounded-full p-3 backdrop-blur-md border transition-all duration-150"
+          aria-label="Share this reel"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+          </svg>
+        </button>
       </div>
 
-      {/* ── Play/pause indicator ── */}
+      {/* Play/pause indicator */}
       {!isPlaying && hasInteracted && (
         <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
           <div className="bg-black/40 rounded-full p-5 backdrop-blur-sm">
@@ -214,7 +300,7 @@ export default function ReelCard({ reel, isActive, index, total, hasInteracted }
         </div>
       )}
 
-      {/* ── Error fallback ── */}
+      {/* Error fallback */}
       {hasError && (
         <div className="absolute inset-0 z-30 flex items-center justify-center bg-black/80">
           <div className="text-center text-white/70 p-6">

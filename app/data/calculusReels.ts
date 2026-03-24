@@ -272,9 +272,17 @@ export const allCalculusReels: CalculusReel[] = [
   },
 ];
 
+function fisherYatesShuffle<T>(arr: T[]): T[] {
+  const shuffled = [...arr];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 export function getRandomVideoSet(count: number = 8): CalculusReel[] {
-  const shuffled = [...allCalculusReels].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, count);
+  return fisherYatesShuffle(allCalculusReels).slice(0, count);
 }
 
 export function getVideosByDifficulty(
@@ -282,16 +290,14 @@ export function getVideosByDifficulty(
   count: number = 8
 ): CalculusReel[] {
   const filtered = allCalculusReels.filter((reel) => reel.difficulty === difficulty);
-  const shuffled = [...filtered].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, Math.min(count, filtered.length));
+  return fisherYatesShuffle(filtered).slice(0, Math.min(count, filtered.length));
 }
 
 export function getVideosByTopic(topic: string, count: number = 8): CalculusReel[] {
   const filtered = allCalculusReels.filter(
     (reel) => reel.topic.toLowerCase() === topic.toLowerCase()
   );
-  const shuffled = [...filtered].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, Math.min(count, filtered.length));
+  return fisherYatesShuffle(filtered).slice(0, Math.min(count, filtered.length));
 }
 
 export const calculusReels = getRandomVideoSet(8);

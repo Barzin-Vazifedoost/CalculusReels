@@ -1,100 +1,96 @@
-# CalculusReels
+# Calculus Reels
 
-A TikTok/Instagram Reels-style app for learning Calculus 1ZB3 at McMaster University through short, engaging video content.
+A TikTok/Instagram Reels-style app for learning Calculus 1ZB3 at McMaster University through short, engaging AI-generated audio content powered by NotebookLM.
+
+**[Live Demo](https://barzin-vazifedoost.github.io/CalculusReels/)**
 
 ## Features
 
-- 📱 Vertical scroll interface similar to TikTok/Instagram Reels
-- 🎓 Calculus 1ZB3 focused content
-- 🎬 Video player with play/pause and mute controls
-- ⌨️ Keyboard navigation support (Arrow keys)
-- 🎨 Difficulty level indicators (Beginner, Intermediate, Advanced)
-- 📚 Topic categorization (Limits, Derivatives, Integration, Applications)
-- 🎯 Smooth snap scrolling between videos
+- Vertical scroll interface similar to TikTok/Instagram Reels
+- 20 AI-generated audio reels covering the full Calc 1ZB3 curriculum
+- Touch swipe and keyboard navigation (Arrow keys)
+- Double-tap to favorite, with heart animation
+- Share reels via native share or clipboard
+- Favorites saved to localStorage
+- Filter by difficulty (Beginner, Intermediate, Advanced) or topic
+- Auto-refresh with configurable intervals
+- Audio visualizer with animated equalizer bars
+- Interactive progress bar with seek
+- Responsive design — mobile-first with collapsible header
+- Full accessibility: ARIA labels, skip link, screen reader support, reduced motion
+
+## Topics Covered
+
+| Topic | Count | Difficulty Range |
+|-------|-------|-----------------|
+| Limits | 3 | Beginner — Advanced |
+| Derivatives | 4 | Intermediate — Advanced |
+| Integration | 7 | Beginner — Advanced |
+| Applications | 4 | Intermediate — Advanced |
+| Series | 2 | Advanced |
+| Theorems | 1 | Intermediate |
 
 ## Tech Stack
 
-- **Next.js 16** - React framework with App Router
-- **TypeScript** - Type safety
-- **Tailwind CSS** - Styling
-- **React** - UI components
+- **Next.js 16** — React framework with App Router, static export
+- **React 19** — UI components
+- **TypeScript** — Type safety
+- **Tailwind CSS v4** — Utility-first styling
+- **GitHub Pages** — Hosting via GitHub Actions
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ installed
-- npm or yarn package manager
+- Node.js 18+
+- npm
 
 ### Installation
 
-1. Clone the repository:
 ```bash
 git clone https://github.com/Barzin-Vazifedoost/CalculusReels.git
 cd CalculusReels
-```
-
-2. Install dependencies:
-```bash
 npm install
-```
-
-3. Run the development server:
-```bash
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Usage
 
-- **Scroll** vertically to navigate between different calculus topics
-- **Click** on the video to play/pause
-- **Click** the speaker icon to toggle sound
-- Use **Arrow Keys** (↑/↓) to navigate between reels
-- Click on the **dots** on the right side to jump to specific videos
+- **Tap/click** to play/pause audio
+- **Swipe up/down** or use **Arrow keys** to navigate between reels
+- **Double-tap** to favorite a reel
+- Use the **filter dropdown** to browse by difficulty or topic
+- Click **Shuffle** to get a fresh set of reels
+- **Share** button copies the link or opens native share sheet on mobile
 
 ## Project Structure
 
 ```
 CalculusReels/
 ├── app/
-│   ├── data/
-│   │   └── calculusReels.ts    # Video data and types
-│   ├── globals.css             # Global styles
-│   ├── layout.tsx              # Root layout
-│   └── page.tsx                # Main page with reel container
+│   ├── data/calculusReels.ts   # Reel data, types, and helper functions
+│   ├── globals.css             # Global styles and animations
+│   ├── layout.tsx              # Root layout with metadata
+│   └── page.tsx                # Main feed page (client component)
 ├── components/
-│   └── ReelCard.tsx            # Individual reel component
-├── public/                     # Static assets
-└── ...config files
+│   ├── ReelCard.tsx            # Individual reel with audio controls
+│   ├── AudioVisualizer.tsx     # Animated equalizer bars
+│   ├── ProgressBar.tsx         # Interactive audio timeline
+│   └── TopicCard.tsx           # Visual background with gradients
+├── public/audio/               # 20 MP3 audio files
+├── scripts/                    # Audio generation pipeline
+└── .github/workflows/          # GitHub Actions deployment
 ```
 
-## Available Scripts
+## Deployment
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm start` - Start production server
-- `npm run lint` - Run ESLint
+The app auto-deploys to GitHub Pages on push to `main` or `develop` via GitHub Actions. See `.github/workflows/deploy.yml`.
 
-## Customization
+## Audio Generation
 
-### Adding New Videos
-
-Edit `app/data/calculusReels.ts` to add new calculus videos:
-
-```typescript
-{
-  id: 9,
-  title: "Your Topic",
-  topic: "Topic Category",
-  description: "Description of the concept",
-  videoUrl: "path/to/video.mp4",
-  thumbnail: "path/to/thumbnail.jpg",
-  duration: "3:00",
-  difficulty: 'beginner' | 'intermediate' | 'advanced'
-}
-```
+See [`scripts/README.md`](scripts/README.md) for instructions on generating audio files using NotebookLM, Google Cloud TTS, or Gemini.
 
 ## License
 
