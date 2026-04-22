@@ -24,6 +24,7 @@ const difficultyConfig = {
 
 export default function ReelCard({ reel, isActive, index, total, hasInteracted, isFavorite, onToggleFavorite }: ReelCardProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -31,8 +32,10 @@ export default function ReelCard({ reel, isActive, index, total, hasInteracted, 
   const [hasError, setHasError] = useState(false);
   const [showLikeAnimation, setShowLikeAnimation] = useState(false);
   const [playbackSpeed, setPlaybackSpeed] = useState(1);
+  const [videoReady, setVideoReady] = useState(false);
   const lastTapRef = useRef(0);
   const difficulty = difficultyConfig[reel.difficulty];
+  const hasVideo = !!reel.videoUrl;
   const SPEED_OPTIONS = [0.75, 1, 1.25, 1.5, 2] as const;
 
   // Auto-play/pause when active state changes
@@ -49,6 +52,18 @@ export default function ReelCard({ reel, isActive, index, total, hasInteracted, 
       setIsPlaying(false);
     }
   }, [isActive, hasInteracted]);
+
+  // Sync video with audio playback
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !hasVideo) return;
+
+    if (isActive && hasInteracted) {
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  }, [isActive, hasInteracted, hasVideo]);
 
   // Track playback progress and handle errors
   useEffect(() => {
@@ -86,13 +101,16 @@ export default function ReelCard({ reel, isActive, index, total, hasInteracted, 
 
   const togglePlay = useCallback(() => {
     const audio = audioRef.current;
+    const video = videoRef.current;
     if (!audio) return;
 
     if (isPlaying) {
       audio.pause();
+      video?.pause();
       setIsPlaying(false);
     } else {
       audio.play().catch(() => {});
+      video?.play().catch(() => {});
       setIsPlaying(true);
     }
   }, [isPlaying]);
@@ -181,11 +199,26 @@ export default function ReelCard({ reel, isActive, index, total, hasInteracted, 
       {/* Hidden audio element */}
       <audio ref={audioRef} src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}${reel.audioUrl}`} preload={isActive ? 'auto' : 'metadata'} />
 
-      {/* Visual background */}
-      <TopicCard reel={reel} />
+      {/* Video background (Manim animation) */}
+      {hasVideo && (
+        <video
+          ref={videoRef}
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}${reel.videoUrl}`}
+          className={`absolute inset-0 w-full h-full object-contain bg-[#0a0a0a] transition-opacity duration-500 ${videoReady ? 'opacity-100' : 'opacity-0'}`}
+          muted
+          loop
+          playsInline
+          preload={isActive ? 'auto' : 'metadata'}
+          onCanPlay={() => setVideoReady(true)}
+          aria-hidden="true"
+        />
+      )}
 
-      {/* Audio visualizer */}
-      <AudioVisualizer isPlaying={isPlaying} color={reel.color} />
+      {/* Static background (when no video or loading) */}
+      {(!hasVideo || !videoReady) && <TopicCard reel={reel} />}
+
+      {/* Audio visualizer (only when no video) */}
+      {!hasVideo && <AudioVisualizer isPlaying={isPlaying} color={reel.color} />}
 
       {/* Click overlay to toggle play/pause */}
       <button

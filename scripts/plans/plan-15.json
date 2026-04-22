@@ -1,0 +1,130 @@
+[
+  {
+    "primitive": "show_title",
+    "params": {
+      "text": "Infinite Series Introduction",
+      "color": "#EF4444"
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "Can you add up INFINITELY many numbers?",
+      "color": "white",
+      "position": "below_title",
+      "font_size": 24
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.2
+    }
+  },
+  {
+    "primitive": "show_formula",
+    "params": {
+      "text": "1 + \u00bd + \u00bc + \u215b + ...",
+      "color": "white",
+      "position": "center"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "draw_axes",
+    "params": {
+      "x_range": [
+        0,
+        10
+      ],
+      "y_range": [
+        0,
+        3
+      ],
+      "position": "bottom"
+    }
+  },
+  {
+    "primitive": "plot_function",
+    "params": {
+      "expression": "2*(1 - 0.5**x)",
+      "color": "#EF4444",
+      "label": "partial sums"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.5
+    }
+  },
+  {
+    "primitive": "show_horizontal_line",
+    "params": {
+      "y": 2,
+      "color": "#FFFFFF"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.5
+    }
+  },
+  {
+    "primitive": "animate_parameter",
+    "params": {
+      "label": "S =",
+      "values": [
+        1,
+        1.5,
+        1.75,
+        1.875,
+        1.9375,
+        1.96875,
+        1.984
+      ],
+      "color": "#EF4444"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "It converges to 2!",
+      "color": "#EF4444",
+      "position": "below",
+      "font_size": 26
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "show_formula",
+    "params": {
+      "text": "\u03a3 a\u2099 converges if partial sums approach L",
+      "color": "#EF4444",
+      "position": "top_right"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.5
+    }
+  }
+]

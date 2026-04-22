@@ -1,0 +1,110 @@
+[
+  {
+    "primitive": "show_title",
+    "params": {
+      "text": "Trigonometric Substitution",
+      "color": "#10B981"
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "Use trig to kill the square root",
+      "color": "white",
+      "position": "below_title",
+      "font_size": 26
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "show_formula",
+    "params": {
+      "text": "\u222b \u221a(a\u00b2 \u2212 x\u00b2) dx",
+      "color": "white",
+      "position": "center"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "draw_shape",
+    "params": {
+      "shape": "triangle",
+      "color": "#10B981",
+      "position": "center"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.8
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "Let x = a sin\u03b8",
+      "color": "#10B981",
+      "position": "below_title",
+      "font_size": 26
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "transform_equation",
+    "params": {
+      "from_text": "\u221a(a\u00b2\u2212a\u00b2sin\u00b2\u03b8) = a cos\u03b8",
+      "to_text": "\u222b a\u00b2 cos\u00b2\u03b8 d\u03b8",
+      "color": "#10B981"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "The square root disappears!",
+      "color": "white",
+      "position": "below",
+      "font_size": 24
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.8
+    }
+  },
+  {
+    "primitive": "show_formula",
+    "params": {
+      "text": "x = a sin\u03b8, x = a tan\u03b8, x = a sec\u03b8",
+      "color": "#10B981",
+      "position": "top_right"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.5
+    }
+  }
+]

@@ -1,0 +1,117 @@
+[
+  {
+    "primitive": "show_title",
+    "params": {
+      "text": "Chain Rule Explained",
+      "color": "#8B5CF6"
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "What if f is inside another function?",
+      "color": "white",
+      "position": "below_title",
+      "font_size": 26
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "show_formula",
+    "params": {
+      "text": "y = sin(x\u00b2)",
+      "color": "white",
+      "position": "center"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "transform_equation",
+    "params": {
+      "from_text": "outer: sin(u)    inner: u = x\u00b2",
+      "to_text": "dy/dx = cos(u) \u00b7 2x",
+      "color": "#8B5CF6"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "draw_axes",
+    "params": {
+      "x_range": [
+        -3,
+        3
+      ],
+      "y_range": [
+        -2,
+        4
+      ],
+      "position": "bottom"
+    }
+  },
+  {
+    "primitive": "plot_function",
+    "params": {
+      "expression": "sin(x**2)",
+      "color": "#8B5CF6",
+      "label": "sin(x\u00b2)"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.5
+    }
+  },
+  {
+    "primitive": "animate_tangent",
+    "params": {
+      "x_values": [
+        -2,
+        -1.5,
+        -1,
+        -0.5,
+        0,
+        0.5,
+        1,
+        1.5,
+        2
+      ],
+      "color": "yellow"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.8
+    }
+  },
+  {
+    "primitive": "show_formula",
+    "params": {
+      "text": "d/dx [f(g(x))] = f'(g(x))\u00b7g'(x)",
+      "color": "#8B5CF6",
+      "position": "top_right"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.5
+    }
+  }
+]

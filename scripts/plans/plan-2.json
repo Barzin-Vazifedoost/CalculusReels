@@ -1,0 +1,148 @@
+[
+  {
+    "primitive": "show_title",
+    "params": {
+      "text": "Derivative Rules",
+      "color": "#8B5CF6"
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "How fast is f(x) changing?",
+      "color": "white",
+      "position": "below_title",
+      "font_size": 26
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "draw_axes",
+    "params": {
+      "x_range": [
+        -2,
+        3
+      ],
+      "y_range": [
+        -1,
+        5
+      ],
+      "position": "bottom"
+    }
+  },
+  {
+    "primitive": "plot_function",
+    "params": {
+      "expression": "x**2",
+      "color": "#8B5CF6",
+      "label": "f(x) = x\u00b2"
+    }
+  },
+  {
+    "primitive": "animate_trace",
+    "params": {
+      "x_start": -1.5,
+      "x_end": 2.5,
+      "color": "yellow",
+      "duration": 2.0
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.5
+    }
+  },
+  {
+    "primitive": "show_secant_to_tangent",
+    "params": {
+      "x_point": 1,
+      "dx_values": [
+        2.0,
+        1.5,
+        1.0,
+        0.5,
+        0.1,
+        0.01
+      ],
+      "color": "yellow"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "animate_tangent",
+    "params": {
+      "x_values": [
+        -1.5,
+        -1,
+        -0.5,
+        0,
+        0.5,
+        1,
+        1.5,
+        2
+      ],
+      "color": "yellow"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.8
+    }
+  },
+  {
+    "primitive": "show_formula",
+    "params": {
+      "text": "d/dx [x\u207f] = nx\u207f\u207b\u00b9",
+      "color": "#8B5CF6",
+      "position": "top_right"
+    }
+  },
+  {
+    "primitive": "highlight_flash",
+    "params": {
+      "color": "yellow",
+      "count": 2
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.5
+    }
+  },
+  {
+    "primitive": "plot_second_function",
+    "params": {
+      "expression": "2*x",
+      "color": "#FBBF24",
+      "label": "f'(x) = 2x"
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "The derivative IS the slope!",
+      "color": "white",
+      "position": "below",
+      "font_size": 24
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.5
+    }
+  }
+]

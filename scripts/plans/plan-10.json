@@ -1,0 +1,118 @@
+[
+  {
+    "primitive": "show_title",
+    "params": {
+      "text": "Integration by Parts",
+      "color": "#10B981"
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "The product rule... in reverse",
+      "color": "white",
+      "position": "below_title",
+      "font_size": 26
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "show_formula",
+    "params": {
+      "text": "\u222b x \u00b7 e\u02e3 dx = ?",
+      "color": "white",
+      "position": "center"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.2
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "Pick:  u = x     dv = e\u02e3 dx",
+      "color": "#10B981",
+      "position": "below_title",
+      "font_size": 24
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "transform_equation",
+    "params": {
+      "from_text": "du = dx     v = e\u02e3",
+      "to_text": "= x\u00b7e\u02e3 \u2212 \u222b e\u02e3 dx = x\u00b7e\u02e3 \u2212 e\u02e3 + C",
+      "color": "#10B981"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "draw_axes",
+    "params": {
+      "x_range": [
+        -2,
+        3
+      ],
+      "y_range": [
+        -2,
+        8
+      ],
+      "position": "bottom"
+    }
+  },
+  {
+    "primitive": "plot_function",
+    "params": {
+      "expression": "x*exp(x)",
+      "color": "#10B981",
+      "label": "x\u00b7e\u02e3"
+    }
+  },
+  {
+    "primitive": "shade_area",
+    "params": {
+      "x_start": 0,
+      "x_end": 2,
+      "color": "#10B981",
+      "opacity": 0.3
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.8
+    }
+  },
+  {
+    "primitive": "show_formula",
+    "params": {
+      "text": "\u222b u dv = uv \u2212 \u222b v du",
+      "color": "#10B981",
+      "position": "top_right"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.5
+    }
+  }
+]

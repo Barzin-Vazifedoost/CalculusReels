@@ -1,0 +1,135 @@
+[
+  {
+    "primitive": "show_title",
+    "params": {
+      "text": "Fundamental Theorem of Calculus",
+      "color": "#10B981"
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "The most important theorem in calculus",
+      "color": "white",
+      "position": "below_title",
+      "font_size": 24
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.2
+    }
+  },
+  {
+    "primitive": "draw_axes",
+    "params": {
+      "x_range": [
+        -1,
+        5
+      ],
+      "y_range": [
+        -1,
+        4
+      ],
+      "position": "bottom"
+    }
+  },
+  {
+    "primitive": "plot_function",
+    "params": {
+      "expression": "0.3*x**2",
+      "color": "#10B981",
+      "label": "f(x)"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.5
+    }
+  },
+  {
+    "primitive": "show_dot",
+    "params": {
+      "x": 1,
+      "y": 0,
+      "color": "yellow",
+      "label": "a"
+    }
+  },
+  {
+    "primitive": "show_dot",
+    "params": {
+      "x": 3.5,
+      "y": 0,
+      "color": "yellow",
+      "label": "b"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.5
+    }
+  },
+  {
+    "primitive": "shade_area",
+    "params": {
+      "x_start": 1,
+      "x_end": 3.5,
+      "color": "#10B981",
+      "opacity": 0.3
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "Area = antiderivative at b minus at a",
+      "color": "white",
+      "position": "below",
+      "font_size": 22
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "show_formula",
+    "params": {
+      "text": "\u222b\u2090\u1d47 f(x)dx = F(b) \u2212 F(a)",
+      "color": "#10B981",
+      "position": "top_right"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.8
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "Derivatives \u2194 Integrals are inverses!",
+      "color": "#10B981",
+      "position": "below",
+      "font_size": 24
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.5
+    }
+  }
+]

@@ -1,0 +1,1 @@
+Welcome to Introduction to Limits. the concept of limits — how a function approaches a value as x gets closer to a point.

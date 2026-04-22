@@ -1,0 +1,110 @@
+[
+  {
+    "primitive": "show_title",
+    "params": {
+      "text": "Area Between Curves",
+      "color": "#10B981"
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "What's the area BETWEEN two curves?",
+      "color": "white",
+      "position": "below_title",
+      "font_size": 26
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "draw_axes",
+    "params": {
+      "x_range": [
+        -1,
+        5
+      ],
+      "y_range": [
+        -1,
+        5
+      ],
+      "position": "bottom"
+    }
+  },
+  {
+    "primitive": "plot_function",
+    "params": {
+      "expression": "-0.5*x**2 + 3*x",
+      "color": "#10B981",
+      "label": "f(x)"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.5
+    }
+  },
+  {
+    "primitive": "plot_second_function",
+    "params": {
+      "expression": "x",
+      "color": "#FBBF24",
+      "label": "g(x)"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.8
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "Subtract: top \u2212 bottom",
+      "color": "white",
+      "position": "below",
+      "font_size": 24
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.8
+    }
+  },
+  {
+    "primitive": "shade_between",
+    "params": {
+      "x_start": 0,
+      "x_end": 4,
+      "color": "#10B981",
+      "opacity": 0.3
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "show_formula",
+    "params": {
+      "text": "A = \u222b\u2090\u1d47 [f(x) \u2212 g(x)] dx",
+      "color": "#10B981",
+      "position": "top_right"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.5
+    }
+  }
+]

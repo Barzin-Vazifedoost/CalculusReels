@@ -1,0 +1,109 @@
+[
+  {
+    "primitive": "show_title",
+    "params": {
+      "text": "Implicit Differentiation",
+      "color": "#8B5CF6"
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "What if y isn't solved explicitly?",
+      "color": "white",
+      "position": "below_title",
+      "font_size": 26
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "show_formula",
+    "params": {
+      "text": "x\u00b2 + y\u00b2 = 25",
+      "color": "white",
+      "position": "center"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "draw_axes",
+    "params": {
+      "x_range": [
+        -6,
+        6
+      ],
+      "y_range": [
+        -6,
+        6
+      ],
+      "position": "bottom"
+    }
+  },
+  {
+    "primitive": "plot_function",
+    "params": {
+      "expression": "(25 - x**2)**0.5 if abs(x) < 5 else 0",
+      "color": "#8B5CF6",
+      "label": "circle"
+    }
+  },
+  {
+    "primitive": "plot_second_function",
+    "params": {
+      "expression": "-(25 - x**2)**0.5 if abs(x) < 5 else 0",
+      "color": "#8B5CF6",
+      "label": ""
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.8
+    }
+  },
+  {
+    "primitive": "animate_tangent",
+    "params": {
+      "x_values": [
+        -4,
+        -3,
+        -1,
+        0,
+        1,
+        3,
+        4
+      ],
+      "color": "yellow"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.8
+    }
+  },
+  {
+    "primitive": "transform_equation",
+    "params": {
+      "from_text": "2x + 2y\u00b7(dy/dx) = 0",
+      "to_text": "dy/dx = \u2212x/y",
+      "color": "#8B5CF6"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.5
+    }
+  }
+]

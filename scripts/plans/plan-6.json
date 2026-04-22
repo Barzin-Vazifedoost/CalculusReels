@@ -1,0 +1,117 @@
+[
+  {
+    "primitive": "show_title",
+    "params": {
+      "text": "L'H\u00f4pital's Rule",
+      "color": "#3B82F6"
+    }
+  },
+  {
+    "primitive": "show_formula",
+    "params": {
+      "text": "lim x\u21920  sin(x)/x = ?",
+      "color": "white",
+      "position": "center"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.5
+    }
+  },
+  {
+    "primitive": "draw_axes",
+    "params": {
+      "x_range": [
+        -4,
+        4
+      ],
+      "y_range": [
+        -1,
+        2
+      ],
+      "position": "bottom"
+    }
+  },
+  {
+    "primitive": "plot_function",
+    "params": {
+      "expression": "sin(x)",
+      "color": "#3B82F6",
+      "label": "sin(x)"
+    }
+  },
+  {
+    "primitive": "plot_second_function",
+    "params": {
+      "expression": "x",
+      "color": "#FBBF24",
+      "label": "x"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.8
+    }
+  },
+  {
+    "primitive": "show_dot",
+    "params": {
+      "x": 0,
+      "y": 0,
+      "color": "red",
+      "label": "0/0 !"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "Indeterminate! Try derivatives...",
+      "color": "white",
+      "position": "below",
+      "font_size": 24
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "transform_equation",
+    "params": {
+      "from_text": "lim sin(x)/x \u2192 lim cos(x)/1",
+      "to_text": "= cos(0)/1 = 1",
+      "color": "#3B82F6"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "show_formula",
+    "params": {
+      "text": "lim f/g = lim f'/g'",
+      "color": "#3B82F6",
+      "position": "top_right"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.5
+    }
+  }
+]

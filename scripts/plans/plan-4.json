@@ -1,0 +1,128 @@
+[
+  {
+    "primitive": "show_title",
+    "params": {
+      "text": "Integration Basics",
+      "color": "#10B981"
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "How do we find the area under a curve?",
+      "color": "white",
+      "position": "below_title",
+      "font_size": 26
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "draw_axes",
+    "params": {
+      "x_range": [
+        -1,
+        4
+      ],
+      "y_range": [
+        -1,
+        5
+      ],
+      "position": "bottom"
+    }
+  },
+  {
+    "primitive": "plot_function",
+    "params": {
+      "expression": "0.5*x**2",
+      "color": "#10B981",
+      "label": "f(x) = \u00bdx\u00b2"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.8
+    }
+  },
+  {
+    "primitive": "show_brace",
+    "params": {
+      "x_start": 0.5,
+      "x_end": 3,
+      "label": "\u0394x",
+      "color": "#10B981",
+      "direction": "down"
+    }
+  },
+  {
+    "primitive": "show_riemann_sum",
+    "params": {
+      "x_start": 0.5,
+      "x_end": 3,
+      "n_values": [
+        3,
+        6,
+        12,
+        24,
+        48
+      ],
+      "color": "#10B981"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "shade_area",
+    "params": {
+      "x_start": 0.5,
+      "x_end": 3,
+      "color": "#10B981",
+      "opacity": 0.3
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "Infinite rectangles = exact area!",
+      "color": "white",
+      "position": "below",
+      "font_size": 24
+    }
+  },
+  {
+    "primitive": "highlight_flash",
+    "params": {
+      "color": "yellow",
+      "count": 2
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "show_formula",
+    "params": {
+      "text": "\u222b f(x)dx = F(x) + C",
+      "color": "#10B981",
+      "position": "top_right"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.5
+    }
+  }
+]

@@ -1,0 +1,104 @@
+[
+  {
+    "primitive": "show_title",
+    "params": {
+      "text": "Related Rates",
+      "color": "#F59E0B"
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "If one thing changes, what else changes?",
+      "color": "white",
+      "position": "below_title",
+      "font_size": 24
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "draw_shape",
+    "params": {
+      "shape": "circle",
+      "color": "#F59E0B",
+      "position": "center"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.8
+    }
+  },
+  {
+    "primitive": "show_formula",
+    "params": {
+      "text": "A = \u03c0r\u00b2",
+      "color": "white",
+      "position": "center"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "r grows \u2192 A grows FASTER",
+      "color": "#F59E0B",
+      "position": "below",
+      "font_size": 24
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "transform_equation",
+    "params": {
+      "from_text": "Differentiate both sides with respect to t",
+      "to_text": "dA/dt = 2\u03c0r \u00b7 dr/dt",
+      "color": "#F59E0B"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.2
+    }
+  },
+  {
+    "primitive": "show_formula",
+    "params": {
+      "text": "dA/dt = dA/dr \u00b7 dr/dt",
+      "color": "#F59E0B",
+      "position": "top_right"
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "The chain rule connects the rates!",
+      "color": "white",
+      "position": "below",
+      "font_size": 22
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.5
+    }
+  }
+]

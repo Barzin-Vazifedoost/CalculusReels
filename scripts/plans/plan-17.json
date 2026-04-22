@@ -1,0 +1,120 @@
+[
+  {
+    "primitive": "show_title",
+    "params": {
+      "text": "Parametric Equations",
+      "color": "#F59E0B"
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "Describe a curve with TWO functions of t",
+      "color": "white",
+      "position": "below_title",
+      "font_size": 24
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "show_formula",
+    "params": {
+      "text": "x(t) = cos(t),  y(t) = sin(t)",
+      "color": "white",
+      "position": "center"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "draw_axes",
+    "params": {
+      "x_range": [
+        -3,
+        3
+      ],
+      "y_range": [
+        -3,
+        3
+      ],
+      "position": "bottom"
+    }
+  },
+  {
+    "primitive": "plot_function",
+    "params": {
+      "expression": "sin(x)*2",
+      "color": "#F59E0B",
+      "label": "parametric path"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.8
+    }
+  },
+  {
+    "primitive": "animate_tangent",
+    "params": {
+      "x_values": [
+        -2.5,
+        -2,
+        -1.5,
+        -1,
+        -0.5,
+        0,
+        0.5,
+        1,
+        1.5,
+        2,
+        2.5
+      ],
+      "color": "yellow"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "Slope = (dy/dt) \u00f7 (dx/dt)",
+      "color": "white",
+      "position": "below",
+      "font_size": 24
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.8
+    }
+  },
+  {
+    "primitive": "show_formula",
+    "params": {
+      "text": "dy/dx = (dy/dt)/(dx/dt)",
+      "color": "#F59E0B",
+      "position": "top_right"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.5
+    }
+  }
+]

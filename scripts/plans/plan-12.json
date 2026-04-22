@@ -1,0 +1,126 @@
+[
+  {
+    "primitive": "show_title",
+    "params": {
+      "text": "Mean Value Theorem",
+      "color": "#EC4899"
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "Somewhere the slope matches the average",
+      "color": "white",
+      "position": "below_title",
+      "font_size": 24
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "draw_axes",
+    "params": {
+      "x_range": [
+        -1,
+        5
+      ],
+      "y_range": [
+        -1,
+        5
+      ],
+      "position": "bottom"
+    }
+  },
+  {
+    "primitive": "plot_function",
+    "params": {
+      "expression": "0.2*x**3 - 0.5*x**2 + 2",
+      "color": "#EC4899",
+      "label": "f(x)"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.5
+    }
+  },
+  {
+    "primitive": "show_dot",
+    "params": {
+      "x": 0.5,
+      "y": 0,
+      "color": "#EC4899",
+      "label": "a"
+    }
+  },
+  {
+    "primitive": "show_dot",
+    "params": {
+      "x": 4,
+      "y": 0,
+      "color": "#EC4899",
+      "label": "b"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.8
+    }
+  },
+  {
+    "primitive": "show_secant_to_tangent",
+    "params": {
+      "x_point": 2.2,
+      "dx_values": [
+        3.5,
+        2.5,
+        1.5,
+        0.5,
+        0.1,
+        0.01
+      ],
+      "color": "yellow"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "There exists c where tangent \u2225 secant",
+      "color": "white",
+      "position": "below",
+      "font_size": 22
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "show_formula",
+    "params": {
+      "text": "f'(c) = [f(b)\u2212f(a)] / (b\u2212a)",
+      "color": "#EC4899",
+      "position": "top_right"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.5
+    }
+  }
+]

@@ -65,5 +65,11 @@ browser_state/
 scripts/temp/
 scripts/*.log
 
+# Manim rendering artifacts
+media/images/
+media/videos/
+media/texts/
+media/Tex/
+
 # Generated audio files (uncomment if you want to ignore them)
 # public/audio/

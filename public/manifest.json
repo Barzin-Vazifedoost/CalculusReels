@@ -1,0 +1,13 @@
+{
+  "name": "Calculus Reels",
+  "short_name": "CalcReels",
+  "description": "AI-powered audio learning for calculus",
+  "start_url": "/CalculusReels/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    { "src": "/CalculusReels/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/CalculusReels/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

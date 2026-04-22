@@ -1,0 +1,123 @@
+[
+  {
+    "primitive": "show_title",
+    "params": {
+      "text": "Partial Fractions",
+      "color": "#10B981"
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "Break it apart to integrate it",
+      "color": "white",
+      "position": "below_title",
+      "font_size": 26
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "show_formula",
+    "params": {
+      "text": "\u222b 1/[(x\u22121)(x+2)] dx",
+      "color": "white",
+      "position": "center"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.2
+    }
+  },
+  {
+    "primitive": "transform_equation",
+    "params": {
+      "from_text": "1/[(x\u22121)(x+2)]",
+      "to_text": "A/(x\u22121) + B/(x+2)",
+      "color": "#10B981"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "draw_axes",
+    "params": {
+      "x_range": [
+        -4,
+        4
+      ],
+      "y_range": [
+        -3,
+        3
+      ],
+      "position": "bottom"
+    }
+  },
+  {
+    "primitive": "plot_function",
+    "params": {
+      "expression": "1/((x-1.01)*(x+2.01))",
+      "color": "#10B981",
+      "label": "f(x)"
+    }
+  },
+  {
+    "primitive": "show_vertical_line",
+    "params": {
+      "x": 1,
+      "color": "#EF4444"
+    }
+  },
+  {
+    "primitive": "show_vertical_line",
+    "params": {
+      "x": -2,
+      "color": "#EF4444"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.8
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "A = 1/3, B = \u22121/3",
+      "color": "#10B981",
+      "position": "below",
+      "font_size": 24
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "show_formula",
+    "params": {
+      "text": "= (1/3)ln|x\u22121| \u2212 (1/3)ln|x+2| + C",
+      "color": "#10B981",
+      "position": "top_right"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.5
+    }
+  }
+]

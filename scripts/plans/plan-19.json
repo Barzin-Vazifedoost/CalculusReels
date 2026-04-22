@@ -1,0 +1,126 @@
+[
+  {
+    "primitive": "show_title",
+    "params": {
+      "text": "Improper Integrals",
+      "color": "#10B981"
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "Can you integrate to INFINITY?",
+      "color": "white",
+      "position": "below_title",
+      "font_size": 26
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.2
+    }
+  },
+  {
+    "primitive": "draw_axes",
+    "params": {
+      "x_range": [
+        0,
+        8
+      ],
+      "y_range": [
+        -0.5,
+        3
+      ],
+      "position": "bottom"
+    }
+  },
+  {
+    "primitive": "plot_function",
+    "params": {
+      "expression": "1/x**2 if x > 0.3 else 10",
+      "color": "#10B981",
+      "label": "f(x) = 1/x\u00b2"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.8
+    }
+  },
+  {
+    "primitive": "shade_area",
+    "params": {
+      "x_start": 1,
+      "x_end": 3,
+      "color": "#10B981",
+      "opacity": 0.2
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.5
+    }
+  },
+  {
+    "primitive": "shade_area",
+    "params": {
+      "x_start": 1,
+      "x_end": 5,
+      "color": "#10B981",
+      "opacity": 0.2
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.5
+    }
+  },
+  {
+    "primitive": "shade_area",
+    "params": {
+      "x_start": 1,
+      "x_end": 7,
+      "color": "#10B981",
+      "opacity": 0.3
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.8
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "The area is FINITE \u2014 it converges!",
+      "color": "white",
+      "position": "below",
+      "font_size": 24
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "show_formula",
+    "params": {
+      "text": "\u222b\u2081\u221e 1/x\u00b2 dx = 1",
+      "color": "#10B981",
+      "position": "top_right"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.5
+    }
+  }
+]

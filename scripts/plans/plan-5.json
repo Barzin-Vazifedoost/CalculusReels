@@ -1,0 +1,108 @@
+[
+  {
+    "primitive": "show_title",
+    "params": {
+      "text": "U-Substitution Method",
+      "color": "#10B981"
+    }
+  },
+  {
+    "primitive": "show_text",
+    "params": {
+      "text": "The reverse chain rule",
+      "color": "white",
+      "position": "below_title",
+      "font_size": 26
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "show_formula",
+    "params": {
+      "text": "\u222b 2x \u00b7 cos(x\u00b2) dx",
+      "color": "white",
+      "position": "center"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.2
+    }
+  },
+  {
+    "primitive": "transform_equation",
+    "params": {
+      "from_text": "Let u = x\u00b2,  du = 2x dx",
+      "to_text": "\u222b cos(u) du",
+      "color": "#10B981"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.0
+    }
+  },
+  {
+    "primitive": "transform_equation",
+    "params": {
+      "from_text": "\u222b cos(u) du = sin(u) + C",
+      "to_text": "= sin(x\u00b2) + C",
+      "color": "#10B981"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.8
+    }
+  },
+  {
+    "primitive": "draw_axes",
+    "params": {
+      "x_range": [
+        -3,
+        3
+      ],
+      "y_range": [
+        -2,
+        2
+      ],
+      "position": "bottom"
+    }
+  },
+  {
+    "primitive": "plot_function",
+    "params": {
+      "expression": "sin(x**2)",
+      "color": "#10B981",
+      "label": "F(x) = sin(x\u00b2)"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 0.8
+    }
+  },
+  {
+    "primitive": "show_formula",
+    "params": {
+      "text": "\u222b f(g(x))\u00b7g'(x)dx = \u222b f(u)du",
+      "color": "#10B981",
+      "position": "top_right"
+    }
+  },
+  {
+    "primitive": "wait",
+    "params": {
+      "duration": 1.5
+    }
+  }
+]
